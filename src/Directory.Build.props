@@ -1,0 +1,64 @@
+<Project>
+
+  <PropertyGroup Label="Common">
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AnalysisLevel>latest</AnalysisLevel>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <CheckEolTargetFramework>false</CheckEolTargetFramework>
+    <PackageIcon>websockets.png</PackageIcon>
+  </PropertyGroup>
+
+  <PropertyGroup Label="StrongNaming">
+    <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)WebSockets.snk</AssemblyOriginatorKeyFile>
+    <WebSocketsPublicKey>002400000480000094000000060200000024000052534131000400000100010065a13de118376c4c36960b8edfd94e62484edb3faa75596abc473f0f96c854de22f816f680f810cb11af3ce11f93effe0ac603ab3b4c2fa95ab6ed3517567a99685ee122b60baae68879dd4abde66f3dcd767d26f48c8da24ae32a2312d9fe2258b60b7b4bfc4b75733c4b45b1ce0c0b8ab322345bd78bcf4d9240b761a768c5</WebSocketsPublicKey>
+  </PropertyGroup>
+
+  <PropertyGroup Label="Repository">
+    <Authors>Scott Offen</Authors>
+    <Copyright>© $([System.DateTime]::UtcNow.Year) Scott Offen</Copyright>
+    <RepositoryUrl>https://github.com/scottoffen/websockets</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageProjectUrl>https://scottoffen.github.io/websockets/</PackageProjectUrl>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <Deterministic>true</Deterministic>
+    <ContinuousIntegrationBuild Condition="'$(GITHUB_ACTIONS)' == 'true'">true</ContinuousIntegrationBuild>
+  </PropertyGroup>
+
+  <PropertyGroup Label="Packaging">
+    <PackageLicenseExpression>MIT OR Apache-2.0</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <EnablePackageValidation>true</EnablePackageValidation>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
+
+  <PropertyGroup Label="GitVersioning">
+    <GitVersionBaseDirectory>$(MSBuildThisFileDirectory)</GitVersionBaseDirectory>
+  </PropertyGroup>
+
+  <ItemGroup Label="AssemblyAttributes">
+    <AssemblyAttribute Include="System.Runtime.InteropServices.ComVisibleAttribute">
+      <_Parameter1>false</_Parameter1>
+      <_Parameter1_IsLiteral>true</_Parameter1_IsLiteral>
+    </AssemblyAttribute>
+  </ItemGroup>
+
+  <ItemGroup Label="BuildPackages">
+    <PackageReference Include="Nerdbank.GitVersioning" Version="3.9.50" Condition="!Exists('packages.config')">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup Label="PackageFiles">
+    <None Include="..\..\websockets.png" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+</Project>

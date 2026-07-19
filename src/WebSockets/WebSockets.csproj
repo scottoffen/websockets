@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net462;net5.0</TargetFrameworks>
+    <PackageId>WebSockets</PackageId>
+    <Description>A ClientWebSocket replacement that fixes its overly strict Connection response-header validation (a spec-legal response like "Connection: Upgrade, Keep-Alive" is wrongly rejected), a bug present on both .NET Framework and modern .NET. Every handshake validation check is overridable, not hardcoded.</Description>
+    <PackageTags>websocket;clientwebsocket;dotnet;dotnet-framework;net5;rfc6455;handshake</PackageTags>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+
+  <ItemGroup Label="BuildPortability" Condition="'$(TargetFramework)' == 'net462'">
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies.net462" Version="1.0.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup Label="PerTfmPartials">
+    <Compile Remove="Legacy/**/*.cs" Condition="'$(TargetFramework)' != 'net462'" />
+    <Compile Remove="Modern/**/*.cs" Condition="'$(TargetFramework)' != 'net5.0'" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="/" />
+  </ItemGroup>
+
+</Project>
