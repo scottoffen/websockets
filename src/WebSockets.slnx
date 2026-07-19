@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="WebSockets.FakeServer/WebSockets.FakeServer.csproj" />
+  <Project Path="WebSockets.Legacy.Tests/WebSockets.Legacy.Tests.csproj" />
+  <Project Path="WebSockets.Modern.Tests/WebSockets.Modern.Tests.csproj" />
+  <Project Path="WebSockets.Resilience/WebSockets.Resilience.csproj" />
+  <Project Path="WebSockets/WebSockets.csproj" />
+</Solution>

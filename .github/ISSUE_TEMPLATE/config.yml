@@ -1,0 +1,14 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 📘 WebSockets Documentation
+    url: https://scottoffen.github.io/websockets
+    about: Start here. Many questions are answered in the official docs.
+  - name: 💬 Community Discussions
+    url: https://github.com/scottoffen/websockets/discussions
+    about: Propose ideas, ask how-to questions, and get community help.
+  - name: "🙋 StackOverflow #websockets"
+    url: https://stackoverflow.com/questions/tagged/websockets?sort=newest
+    about: Ask/answer usage questions with the websockets tag.
+  - name: 🔒 Report a security vulnerability
+    url: https://github.com/scottoffen/websockets/security/advisories/new
+    about: Please report vulnerabilities privately rather than as a public issue.
